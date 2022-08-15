@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_main">#232629</color>
+    <color name="bg_input">#393D42</color>
+    <color name="bg_card">#272B2E</color>
+
+    <color name="text_main">#F6F6F6</color>
+    <color name="text_additional_alpha50">#80F6F6F6</color>
+    <color name="text_inactive">#80F6F6F6</color>
+    <color name="text_button">#DFA3FF</color>
+</resources>

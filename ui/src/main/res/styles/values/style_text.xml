@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ManropeSemiBold">
+        <item name="fontFamily">@font/manrope_semibold</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="ManropeBold">
+        <item name="fontFamily">@font/manrope_bold</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="ManropeExtraBold">
+        <item name="fontFamily">@font/manrope_extrabold</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="Body.P2" parent="ManropeSemiBold">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_main</item>
+    </style>
+
+    <style name="Body.P2.Alpha50" parent="ManropeSemiBold">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_additional_alpha50</item>
+    </style>
+
+    <style name="Body.P2.Dark" parent="Body.P2">
+        <item name="android:textColor">@color/bg_main</item>
+    </style>
+
+    <style name="Title.H6" parent="ManropeBold">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_main</item>
+    </style>
+
+    <style name="Title.H6.Purple" parent="Title.H6">
+        <item name="android:textColor">@color/text_button</item>
+    </style>
+
+    <style name="Title.H3" parent="ManropeExtraBold">
+        <item name="android:textSize">24sp</item>
+        <item name="android:letterSpacing">-0.04</item>
+        <item name="android:textColor">@color/text_main</item>
+    </style>
+
+</resources>

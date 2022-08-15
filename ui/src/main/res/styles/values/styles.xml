@@ -5,4 +5,16 @@
         <item name="bottomSheetDialogTheme">@style/AppTheme.BottomSheetDialogTheme</item>
     </style>
 
+    <style name="BaseBackgroundDark">
+        <item name="android:background">@color/bg_main</item>
+    </style>
+
+    <style name="InputBackground">
+        <item name="android:background">@color/bg_input</item>
+    </style>
+
+    <style name="InputLayoutTheme">
+        <item name="colorControlActivated">@color/bg_input</item>
+    </style>
+
 </resources>

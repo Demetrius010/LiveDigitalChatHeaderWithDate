@@ -30,6 +30,20 @@ class ListExtension(private var list: RecyclerView?) {
     }
 
     /**
+     * Добавить [ItemDecoration] списка
+     */
+    fun addItemDecoration(itemDecoration: RecyclerView.ItemDecoration) {
+        list?.addItemDecoration(itemDecoration)
+    }
+
+    /**
+     * Удалить [ItemDecoration] списка
+     */
+    fun removeItemDecoration(itemDecoration: RecyclerView.ItemDecoration) {
+        list?.removeItemDecoration(itemDecoration)
+    }
+
+    /**
      * Заблокировать список
      */
     fun lock() {

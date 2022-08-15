@@ -8,7 +8,7 @@ import java.util.*
 data class MessageItemData(
     val id: MessageId,
     val text: String,
-    val created: Date,
+    val created: String,
     val author: UserId,
     val type: MessageType,
     val sendStatus: MessageSendStatus,

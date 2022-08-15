@@ -2,7 +2,7 @@ package space.livedigital.chat_sdk.ui.fragments.dialogs.base
 
 import android.view.View
 import androidx.core.view.ViewCompat
-import com.google.android.material.bottomsheet.BottomSheetBehavior.*
+import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
 import space.livedigital.chat_sdk.ui.R

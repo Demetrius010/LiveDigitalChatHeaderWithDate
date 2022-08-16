@@ -136,6 +136,43 @@ object DateUtils {
         return true
     }
 
+    /**
+     * Проверяет является ли переданная дата текущим днем в UTC.
+     * @param date проверяемая дата
+     * @return truе - если дата текущая.
+     */
+    fun isTodayInUTC(date: Date): Boolean {
+        return isTheSameDay(date, Calendar.getInstance(TimeZone.getTimeZone("UTC")).time)
+    }
+
+    /**
+     * Проверяет является ли переданная дата вчерашним днем в UTC.
+     * @param date проверяемая дата
+     * @return truе - если дата является вчерашним днем.
+     */
+    fun isYesterdayInUTC(date: Date): Boolean {
+        val calendar1 = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+        calendar1.add(Calendar.DAY_OF_YEAR, -1)
+
+        val calendar2 = Calendar.getInstance().apply { time = date }
+
+        return isTheSameDay(calendar1, calendar2)
+    }
+
+    /**
+     * Проверяет является ли переданная дата позавчерашним днем в UTC .
+     * @param date проверяемая дата
+     * @return truе - если дата является позавчерашним днем.
+     */
+    fun isDayBeforeYesterdayInUTC(date: Date): Boolean {
+        val calendar1 = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+        calendar1.add(Calendar.DAY_OF_YEAR, -2)
+
+        val calendar2 = Calendar.getInstance().apply { time = date }
+
+        return isTheSameDay(calendar1, calendar2)
+    }
+
     enum class DateFormat(var format: String) {
         HH_MM("h:mm"),
         MM_SS("m:ss"),

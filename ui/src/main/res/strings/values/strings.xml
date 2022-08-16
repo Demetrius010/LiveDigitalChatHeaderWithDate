@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="day_before_yesterday" />
+    <string name="date_format_pattern">MMMM dd</string>
+</resources>

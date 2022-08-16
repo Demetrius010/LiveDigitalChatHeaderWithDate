@@ -3,7 +3,7 @@ package space.livedigital.chat_sdk.example
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import space.livedigital.chat_sdk.example.databinding.ExampleActivityBinding
-import space.livedigital.chat_sdk.ui.fragments.dialogs.chat.ChatBottomSheetDialogFragment
+import space.livedigital.chat_sdk.ui.ui.fragments.dialogs.chat.ChatBottomSheetDialogFragment
 
 class ExampleActivity : AppCompatActivity() {
 

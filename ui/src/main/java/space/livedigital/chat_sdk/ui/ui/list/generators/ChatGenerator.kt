@@ -21,7 +21,7 @@ class ChatGenerator {
         val messagesByDate = LinkedHashMap<Date, MutableList<Message>>()
 
         messages.forEach {
-            val date = getUTCDate(it.created!!)!!
+            val date = getDateWithoutTime(it.created!!)
 
             if (messagesByDate.containsKey(date)) {
                 messagesByDate[date]?.add(it)
@@ -68,6 +68,9 @@ class ChatGenerator {
         }
         return dayType
     }
+
+    private fun getDateWithoutTime(UTCDateString: String) =
+        DateUtils.getDateWithoutTime(getUTCDate(UTCDateString)!!)
 
     private fun getUTCDate(UTCDateString: String) = DateUtils.getUTCDateFromFormattedString(
         UTCDateString,

@@ -173,6 +173,20 @@ object DateUtils {
         return isTheSameDay(calendar1, calendar2)
     }
 
+    /**
+     * Получить дату, время у которой 00:00:00.000
+     * @param date  дата
+     * @return date дата
+     */
+    fun getDateWithoutTime(date: Date): Date {
+        val calendar = Calendar.getInstance().apply { time = date }
+        calendar.set(Calendar.HOUR_OF_DAY, 0)
+        calendar.set(Calendar.MINUTE, 0)
+        calendar.set(Calendar.SECOND, 0)
+        calendar.set(Calendar.MILLISECOND, 0)
+        return calendar.time
+    }
+
     enum class DateFormat(var format: String) {
         HH_MM("h:mm"),
         MM_SS("m:ss"),

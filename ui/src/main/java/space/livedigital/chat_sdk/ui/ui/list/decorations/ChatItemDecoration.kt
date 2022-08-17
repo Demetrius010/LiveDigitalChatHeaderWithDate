@@ -31,11 +31,11 @@ class ChatItemDecoration : RecyclerView.ItemDecoration() {
 
     private fun setVerticalMargins(position: Int, outRect: Rect, marginInPx: Int) {
         if (position == 0) {
-            outRect.top = BASE_MARGINS_IN_PX
+            outRect.top = BASE_T0P_MARGIN_IN_PX
             outRect.bottom = marginInPx
         } else if (position == itemCount?.minus(1)) {
             outRect.top = marginInPx
-            outRect.bottom = BASE_MARGINS_IN_PX
+            outRect.bottom = BASE_BOTTOM_MARGIN_IN_PX
         } else {
             outRect.top = marginInPx
             outRect.bottom = marginInPx
@@ -43,7 +43,8 @@ class ChatItemDecoration : RecyclerView.ItemDecoration() {
     }
 
     private companion object {
-        val BASE_MARGINS_IN_PX = ResourcesUtils.getPxByDp(20f)
+        val BASE_T0P_MARGIN_IN_PX = ResourcesUtils.getPxByDp(10f)
+        val BASE_BOTTOM_MARGIN_IN_PX = ResourcesUtils.getPxByDp(20f)
         val MESSAGE_MARGINS_IN_PX = ResourcesUtils.getPxByDp(10f)
         val DATE_MARGINS_IN_PX = ResourcesUtils.getPxByDp(12f)
     }

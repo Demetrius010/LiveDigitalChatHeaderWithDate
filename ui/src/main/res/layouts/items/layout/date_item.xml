@@ -7,7 +7,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/time_text"
-        style="@style/Title.H6"
+        style="@style/Title.H6.Light06"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

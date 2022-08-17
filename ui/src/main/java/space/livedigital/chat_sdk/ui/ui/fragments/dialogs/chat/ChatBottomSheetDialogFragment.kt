@@ -2,6 +2,7 @@ package space.livedigital.chat_sdk.ui.ui.fragments.dialogs.chat
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -70,10 +71,8 @@ class ChatBottomSheetDialogFragment : BaseRoundedBottomSheetDialogFragment() {
 
             when (state) {
                 is ChatScreenState.Initial -> {}
-                is ChatScreenState.Loading -> showChatLoadingState()
-                is ChatScreenState.Success -> showChatSussesState(state)
-                is ChatScreenState.EmptyChat -> showEmptyChatState()
-                is ChatScreenState.Error -> showErrorState(state)
+                is ChatScreenState.Success -> showChatSuccessState(state)
+                is ChatScreenState.Error -> showChatErrorState(state)
             }
         }
     }
@@ -89,46 +88,31 @@ class ChatBottomSheetDialogFragment : BaseRoundedBottomSheetDialogFragment() {
     }
 
     private fun showInitialState() {
-//        binding?.headerView?.isVisible = false
-//        binding?.list?.isVisible = false
-//        binding?.closeButton?.isEnabled = true
-//        binding?.inputView?.isVisible = false
-//        binding?.loadingView?.isVisible = false
+        binding?.list?.isVisible = false
     }
 
-    private fun showChatSussesState(state: ChatScreenState.Success) {
-        //binding?.list?.isVisible = true
+    private fun showChatSuccessState(state: ChatScreenState.Success) {
+        binding?.list?.isVisible = true
         showMessages(state.messages)
     }
 
-    private fun showChatLoadingState() {
-//        binding?.loadingView?.isVisible = true
+    private fun showChatErrorState(state: ChatScreenState.Error) {
+        // TODO: Показываем экран/сообщение об ошибке
     }
 
-    private fun showErrorState(state: ChatScreenState.Error) {
-//        binding?.errorStateView?.isVisible = true
-
-//        val errorMessage = MessagesConverter().convert(error)
-//        binding?.errorMessageText?.text = errorMessage
-    }
-
-    private fun showEmptyChatState() {
-//        binding?.contentView?.isVisible = false
-//        binding?.messagesNotFoundView?.isVisible = true
-    }
 
     private fun setupListeners() {
         binding?.closeButton?.setOnClickListener {
-            chatViewModel.onCloseButtonClicked()
+            dismiss()
         }
     }
 
     private fun showMessages(messages: List<Message>) {
-        val listItems = ChatGenerator().generateMessagesListItems(messages)
+        val listItems = ChatGenerator().generateChatListItems(messages)
         adapter.updateItems(listItems)
     }
 
     private fun showPinnedMessages(messages: List<Message>) {
-
+        // TODO: Показываем экран с закрепленными сообщениями
     }
 }

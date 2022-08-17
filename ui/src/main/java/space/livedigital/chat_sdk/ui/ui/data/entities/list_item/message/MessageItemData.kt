@@ -7,11 +7,5 @@ import java.util.*
  * Данные для [ListItem] сообщений чата
  */
 data class MessageItemData(
-    val id: MessageId,
-    val text: String,
-    val created: Date,
-    val author: UserId,
-    val type: MessageType,
-    val sendStatus: MessageSendStatus,
-    val pinned: Boolean,
+    val message: Message
 )

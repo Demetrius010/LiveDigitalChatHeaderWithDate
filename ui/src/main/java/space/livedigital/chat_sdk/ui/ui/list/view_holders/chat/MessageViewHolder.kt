@@ -3,14 +3,16 @@ package space.livedigital.chat_sdk.ui.ui.list.view_holders.chat
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import space.livedigital.chat_sdk.ui.R
-import space.livedigital.chat_sdk.ui.data.entities.UserId
+import space.livedigital.chat_sdk.ui.data.entities.Message
 import space.livedigital.chat_sdk.ui.databinding.MessageItemBinding
 import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.ListItem
 import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.message.MessageItemData
 import space.livedigital.chat_sdk.ui.ui.list.view_holders.base.BaseViewHolder
 import space.livedigital.chat_sdk.utils.DateUtils
-import java.util.*
 
+/**
+ * ViewHolder сообщения
+ */
 class MessageViewHolder(
     inflater: LayoutInflater,
     parent: ViewGroup
@@ -20,35 +22,25 @@ class MessageViewHolder(
 
     fun bind(listItem: ListItem) {
         val messageItemData = listItem.data as MessageItemData
-        showMessage(messageItemData)
+        showMessage(messageItemData.message)
     }
 
-    private fun showMessage(data: MessageItemData) {
-        binding.messageText.text = data.text
-
-        val authorName = getAuthorName(data.author)
-        binding.nameText.text = authorName
-        binding.initialsText.text = authorName.split(" ").map { it.first() }.joinToString("")
-
-        binding.timeText.text = getUTCTime(data.created)
+    private fun showMessage(message: Message) {
+        binding.messageText.text = message.text
+        binding.nameText.text = message.author
+        binding.initialsText.text = getUserInitials(message.author)
+        binding.timeText.text = getUTCTime(message.created!!)
     }
 
-    private fun getUTCTime(UTCDate: Date) =
-        DateUtils.getFormattedDateString(UTCDate, DateUtils.DateFormat.HH_MM)
+    private fun getUserInitials(name: String?): String? {
+        return name?.split(" ")?.map { it.first() }?.joinToString("")
+    }
 
-    private fun getAuthorName(userId: UserId): String {
-        val users = listOf(
-            "Михаил Кузин",
-            "Анна Нестерова",
-            "Василиса Данилова",
-            "Ибрагим Чернов",
-            "Георгий Титов",
-            "Анна Андреева",
-            "Андрей Орлов",
-            "Екатерина Зайцева",
-            "Владислав Савин",
-            "Арсений Павлов"
+    private fun getUTCTime(UTCDateString: String): String {
+        val UTCDate = DateUtils.getUTCDateFromFormattedString(
+            UTCDateString,
+            DateUtils.DateFormat.ISO_8601_WITH_TIME_ZONE
         )
-        return users.shuffled().first()
+        return DateUtils.getFormattedDateString(UTCDate, DateUtils.DateFormat.HH_MM)!!
     }
 }

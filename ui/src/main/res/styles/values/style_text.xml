@@ -18,16 +18,15 @@
 
     <style name="Body.P2" parent="ManropeSemiBold">
         <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black01</item>
+    </style>
+
+    <style name="Body.P2.Light06" parent="ManropeSemiBold">
+        <item name="android:textColor">@color/light06</item>
+    </style>
+
+    <style name="Body.P2.Main" parent="Body.P2">
         <item name="android:textColor">@color/text_main</item>
-    </style>
-
-    <style name="Body.P2.Alpha50" parent="ManropeSemiBold">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/text_additional_alpha50</item>
-    </style>
-
-    <style name="Body.P2.Dark" parent="Body.P2">
-        <item name="android:textColor">@color/bg_main</item>
     </style>
 
     <style name="Title.H6" parent="ManropeBold">
@@ -35,14 +34,18 @@
         <item name="android:textColor">@color/text_main</item>
     </style>
 
-    <style name="Title.H6.Purple" parent="Title.H6">
-        <item name="android:textColor">@color/text_button</item>
+    <style name="Title.H6.Active" parent="Title.H6">
+        <item name="android:textColor">@color/color_active</item>
+    </style>
+
+    <style name="Title.H6.Light06" parent="ManropeBold">
+        <item name="android:textColor">@color/light06</item>
     </style>
 
     <style name="Title.H3" parent="ManropeExtraBold">
         <item name="android:textSize">24sp</item>
         <item name="android:letterSpacing">-0.04</item>
-        <item name="android:textColor">@color/text_main</item>
+        <item name="android:textColor">@color/black01</item>
     </style>
 
 </resources>

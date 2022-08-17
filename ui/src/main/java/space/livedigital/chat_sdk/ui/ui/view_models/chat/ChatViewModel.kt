@@ -26,12 +26,7 @@ class ChatViewModel(private val chatModel: ChatModel) : ViewModel() {
         loadMessages()
     }
 
-    fun onCloseButtonClicked() {
-
-    }
-
     private fun loadMessages() {
-        mutableScreenState.value = ChatScreenState.Loading
         viewModelScope.launch {
             val result = chatModel.getMessages()
             onLoadMessagesReceivedResult(result)
@@ -40,15 +35,8 @@ class ChatViewModel(private val chatModel: ChatModel) : ViewModel() {
 
     private fun onLoadMessagesReceivedResult(result: ExecutionResult<List<Message>>) {
         when (result) {
-            is ExecutionResult.Success -> {
-                val messages = result.data
-                mutableScreenState.value = if (messages.isEmpty()) {
-                    ChatScreenState.EmptyChat
-                } else {
-                    ChatScreenState.Success(result.data)
-                }
-
-            }
+            is ExecutionResult.Success ->
+                mutableScreenState.value = ChatScreenState.Success(result.data)
             is ExecutionResult.Error ->
                 mutableScreenState.value = ChatScreenState.Error(result.error)
         }

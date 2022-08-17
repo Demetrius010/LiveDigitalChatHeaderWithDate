@@ -8,8 +8,6 @@ import space.livedigital.chat_sdk.ui.domain.results.ExecutionError
  */
 sealed class ChatScreenState {
     object Initial : ChatScreenState()
-    object Loading : ChatScreenState()
     class Error(val error: ExecutionError) : ChatScreenState()
     class Success(val messages: List<Message>) : ChatScreenState()
-    object EmptyChat : ChatScreenState()
 }

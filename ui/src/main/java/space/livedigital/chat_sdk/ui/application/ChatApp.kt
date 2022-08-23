@@ -14,7 +14,7 @@ import space.livedigital.chat_sdk.ui.di.viewModelsModule
 /**
  * Класс - Application
  */
-class App : Application() {
+class ChatApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
@@ -26,7 +26,7 @@ class App : Application() {
     private fun initKoin() {
         startKoin {
             androidLogger(Level.DEBUG)
-            androidContext(this@App)
+            androidContext(this@ChatApp)
             modules(
                 modelsModule,
                 repositoriesModule,

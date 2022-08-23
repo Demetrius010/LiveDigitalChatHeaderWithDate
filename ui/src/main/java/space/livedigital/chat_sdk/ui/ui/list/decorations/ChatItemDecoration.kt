@@ -12,34 +12,52 @@ import space.livedigital.chat_sdk.utils.ResourcesUtils
  */
 class ChatItemDecoration : RecyclerView.ItemDecoration() {
 
-    private var itemCount: Int? = 0
-
     override fun getItemOffsets(
         outRect: Rect,
         view: View,
         parent: RecyclerView,
         state: RecyclerView.State
     ) {
-        val position = parent.getChildAdapterPosition(view)
-        itemCount = parent.adapter?.itemCount
+        val itemPosition = getItemPosition(view, parent)
 
         when (parent.getChildViewHolder(view)) {
-            is MessageViewHolder -> setMarginVertical(position, outRect, MESSAGE_MARGIN_IN_PX)
-            is DateViewHolder -> setMarginVertical(position, outRect, DATE_MARGIN_IN_PX)
+            is MessageViewHolder -> setMarginVertical(itemPosition, outRect, MESSAGE_MARGIN_IN_PX)
+            is DateViewHolder -> setMarginVertical(itemPosition, outRect, DATE_MARGIN_IN_PX)
         }
     }
 
-    private fun setMarginVertical(position: Int, outRect: Rect, marginInPx: Int) {
-        if (position == 0) {
-            outRect.top = BASE_T0P_MARGIN_IN_PX
-            outRect.bottom = marginInPx
-        } else if (position == itemCount?.minus(1)) {
-            outRect.top = marginInPx
-            outRect.bottom = BASE_BOTTOM_MARGIN_IN_PX
-        } else {
-            outRect.top = marginInPx
-            outRect.bottom = marginInPx
+    private fun setMarginVertical(itemPosition: ItemPosition, outRect: Rect, marginInPx: Int) {
+        when (itemPosition) {
+            ItemPosition.FIRST -> {
+                outRect.top = BASE_T0P_MARGIN_IN_PX
+                outRect.bottom = marginInPx
+            }
+            ItemPosition.LAST -> {
+                outRect.top = marginInPx
+                outRect.bottom = BASE_BOTTOM_MARGIN_IN_PX
+            }
+            ItemPosition.MIDDLE -> {
+                outRect.top = marginInPx
+                outRect.bottom = marginInPx
+            }
         }
+    }
+
+    private fun getItemPosition(itemView: View, parent: RecyclerView): ItemPosition {
+        val position = parent.getChildAdapterPosition(itemView)
+        val lastPosition = parent.adapter?.itemCount?.minus(1)
+
+        return when (position) {
+            0 -> ItemPosition.FIRST
+            lastPosition -> ItemPosition.LAST
+            else -> ItemPosition.MIDDLE
+        }
+    }
+
+    private sealed class ItemPosition {
+        object FIRST : ItemPosition()
+        object MIDDLE : ItemPosition()
+        object LAST : ItemPosition()
     }
 
     private companion object {

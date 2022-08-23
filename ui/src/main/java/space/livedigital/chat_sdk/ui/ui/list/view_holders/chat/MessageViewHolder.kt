@@ -29,18 +29,18 @@ class MessageViewHolder(
         binding.messageText.text = message.text
         binding.nameText.text = message.author
         binding.initialsText.text = getUserInitials(message.author)
-        binding.timeText.text = getUTCTime(message.created!!)
+        binding.timeText.text = message.created?.let { getUTCTime(it) } ?: ""
     }
 
     private fun getUserInitials(name: String?): String? {
         return name?.split(" ")?.map { it.first() }?.joinToString("")
     }
 
-    private fun getUTCTime(UTCDateString: String): String {
-        val UTCDate = DateUtils.getUTCDateFromFormattedString(
-            UTCDateString,
+    private fun getUTCTime(dateStringInUTC: String): String? {
+        val dateInUTC = DateUtils.getUTCDateFromFormattedString(
+            dateStringInUTC,
             DateUtils.DateFormat.ISO_8601_WITH_TIME_ZONE
         )
-        return DateUtils.getFormattedDateString(UTCDate, DateUtils.DateFormat.HH_MM)!!
+        return DateUtils.getFormattedDateString(dateInUTC, DateUtils.DateFormat.HH_MM)
     }
 }

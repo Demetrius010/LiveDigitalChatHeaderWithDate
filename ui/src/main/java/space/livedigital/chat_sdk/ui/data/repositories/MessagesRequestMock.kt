@@ -20,17 +20,17 @@ object MessagesRequestMock {
     fun generateMessages(): List<Message> {
         val listItems = mutableListOf<Message>()
         (0..12).forEach {
-            val UTCDateString = dates[it / 3] // через каждые 3 сообщения меняем дату
-            listItems.add(generateMessage(UTCDateString))
+            val dateStringInUTC = dates[it / 3] // через каждые 3 сообщения меняем дату
+            listItems.add(generateMessage(dateStringInUTC))
         }
         return listItems
     }
 
-    private fun generateMessage(UTCDate: String): Message {
+    private fun generateMessage(dateStringInUTC: String): Message {
         return Message(
             id = UUID.randomUUID().toString().substring(0, 4),
             text = getRandomMessageText(),
-            created = UTCDate,
+            created = dateStringInUTC,
             author = users.shuffled().first(),
             type = MessageType.user.name,
             sendStatus = MessageSendStatus.sent.name,

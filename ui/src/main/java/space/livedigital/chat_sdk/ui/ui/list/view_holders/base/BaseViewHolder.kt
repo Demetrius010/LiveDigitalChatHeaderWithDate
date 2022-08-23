@@ -4,14 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 
 /**
  * Базовый [ViewHolder]
  */
-open class BaseViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+open class BaseViewHolder(view: View) : ViewHolder(view) {
 
     constructor(
         layoutInflater: LayoutInflater,

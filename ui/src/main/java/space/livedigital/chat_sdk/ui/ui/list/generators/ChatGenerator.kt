@@ -71,11 +71,11 @@ class ChatGenerator {
         }
     }
 
-    private fun getDateWithoutTime(UTCDateString: String) =
-        DateUtils.getDateWithoutTime(getUTCDate(UTCDateString)!!)
+    private fun getDateWithoutTime(dateStringInUTC: String) =
+        DateUtils.getDateWithoutTime(getUTCDate(dateStringInUTC)!!)
 
-    private fun getUTCDate(UTCDateString: String) = DateUtils.getUTCDateFromFormattedString(
-        UTCDateString,
+    private fun getUTCDate(dateStringInUTC: String) = DateUtils.getUTCDateFromFormattedString(
+        dateStringInUTC,
         DateUtils.DateFormat.ISO_8601_WITH_TIME_ZONE
     )
 }

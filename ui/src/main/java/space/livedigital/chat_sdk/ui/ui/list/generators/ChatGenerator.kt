@@ -9,6 +9,9 @@ import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.date.DayTypeRela
 import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.date.DayTypeRelativeToToday.*
 import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.message.MessageItemData
 import space.livedigital.chat_sdk.utils.DateUtils
+import space.livedigital.chat_sdk.utils.DateUtils.isDayBeforeYesterdayInUTC
+import space.livedigital.chat_sdk.utils.DateUtils.isTodayInUTC
+import space.livedigital.chat_sdk.utils.DateUtils.isYesterdayInUTC
 import java.util.*
 
 /**
@@ -18,18 +21,21 @@ class ChatGenerator {
 
     fun generateChatListItems(messages: List<Message>): List<ListItem> {
 
+        val messagesByDate = groupMessagesByDate(messages)
+
+        return generateChatListItems(messagesByDate)
+    }
+
+    private fun groupMessagesByDate(messages: List<Message>): Map<Date, List<Message>> {
         val messagesByDate = LinkedHashMap<Date, MutableList<Message>>()
-
-        messages.forEach {
-            val date = getDateWithoutTime(it.created!!)
-
-            if (messagesByDate.containsKey(date)) {
-                messagesByDate[date]?.add(it)
-            } else {
-                messagesByDate[date] = mutableListOf(it)
-            }
+        messages.forEach { message ->
+            val date = getDateWithoutTime(message.created!!)
+            messagesByDate.getOrPut(date) { mutableListOf() }.add(message)
         }
+        return messagesByDate
+    }
 
+    private fun generateChatListItems(messagesByDate: Map<Date, List<Message>>): List<ListItem> {
         val listItems = mutableListOf<ListItem>()
         messagesByDate.forEach { date, messages ->
             listItems.add(generateDateListItem(date))
@@ -37,7 +43,6 @@ class ChatGenerator {
                 listItems.add(generateMessageListItem(message))
             }
         }
-
         return listItems
     }
 
@@ -58,15 +63,12 @@ class ChatGenerator {
     }
 
     private fun getDayType(date: Date): DayTypeRelativeToToday {
-        var dayType = OTHER_DAYS
-        if (DateUtils.isTodayInUTC(date)) {
-            dayType = TODAY
-        } else if (DateUtils.isYesterdayInUTC(date)) {
-            dayType = YESTERDAY
-        } else if (DateUtils.isDayBeforeYesterdayInUTC(date)) {
-            dayType = DAY_BEFORE_YESTERDAY
+        return when {
+            isTodayInUTC(date) -> TODAY
+            isYesterdayInUTC(date) -> YESTERDAY
+            isDayBeforeYesterdayInUTC(date) -> DAY_BEFORE_YESTERDAY
+            else -> OTHER_DAYS
         }
-        return dayType
     }
 
     private fun getDateWithoutTime(UTCDateString: String) =

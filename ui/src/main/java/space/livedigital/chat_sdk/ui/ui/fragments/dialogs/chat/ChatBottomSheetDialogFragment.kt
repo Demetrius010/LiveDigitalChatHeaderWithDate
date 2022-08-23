@@ -52,7 +52,6 @@ class ChatBottomSheetDialogFragment : BaseRoundedBottomSheetDialogFragment() {
         listExtension.addItemDecoration(ChatItemDecoration())
     }
 
-
     private fun observeState() {
         repeatOnViewLifecycleStart {
             launch {
@@ -99,7 +98,6 @@ class ChatBottomSheetDialogFragment : BaseRoundedBottomSheetDialogFragment() {
     private fun showChatErrorState(state: ChatScreenState.Error) {
         // TODO: Показываем экран/сообщение об ошибке
     }
-
 
     private fun setupListeners() {
         binding?.closeButton?.setOnClickListener {

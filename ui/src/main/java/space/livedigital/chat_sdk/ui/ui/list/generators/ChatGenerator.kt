@@ -5,8 +5,8 @@ import space.livedigital.chat_sdk.ui.ui.data.constants.list.ListItemIds
 import space.livedigital.chat_sdk.ui.ui.data.constants.list.ListItemTypes
 import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.ListItem
 import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.date.DateItemData
-import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.date.DayType
-import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.date.DayType.*
+import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.date.DayTypeRelativeToToday
+import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.date.DayTypeRelativeToToday.*
 import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.message.MessageItemData
 import space.livedigital.chat_sdk.utils.DateUtils
 import java.util.*
@@ -57,7 +57,7 @@ class ChatGenerator {
         )
     }
 
-    private fun getDayType(date: Date): DayType {
+    private fun getDayType(date: Date): DayTypeRelativeToToday {
         var dayType = OTHER_DAYS
         if (DateUtils.isTodayInUTC(date)) {
             dayType = TODAY

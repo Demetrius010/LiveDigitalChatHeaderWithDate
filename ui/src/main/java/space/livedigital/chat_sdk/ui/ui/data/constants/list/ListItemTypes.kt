@@ -4,7 +4,7 @@ package space.livedigital.chat_sdk.ui.ui.data.constants.list
  * Типы [ListItem]
  */
 enum class ListItemTypes {
-    // ListItem с переходом (подразумевается, что поле заполнятся)
+    // ListItem с переходом (подразумевается, что поле заполняется)
     SELECTION,
 
     // ListItem с checkbox
@@ -25,10 +25,10 @@ enum class ListItemTypes {
     // ListItem и заголовком блока на экране, возможно, будут разделения по типам
     HEADER,
 
-    // ListItem со списком: например, галлерея фотографий
+    // ListItem со списком: например, галерея фотографий
     LIST,
 
-    // ListItem с тестовым сообщением
+    // ListItem с текстовым сообщением
     TEXT,
 
     // ListItem с возможностью ввести значение

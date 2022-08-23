@@ -8,7 +8,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 /**
- * Рассширение [Fragment] для автоматической подписки и отписки на flow/chanel ViewModel`и
+ * Расширение [Fragment] для автоматической подписки и отписки на flow/chanel ViewModel`и
  */
 inline fun Fragment.repeatOnViewLifecycleStart(
     crossinline block: suspend CoroutineScope.() -> Unit,

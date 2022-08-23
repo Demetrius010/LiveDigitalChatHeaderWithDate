@@ -37,11 +37,11 @@ object DateUtils {
     }
 
     /**
-     * Возвращает отформатированную дату
+     * Возвращает отформатированную дату, с учетом [Locale] установленной по умолчанию
      *
      * @param date         дата
      * @param sourceFormat формат строки
-     * @return дата
+     * @return отформатированная дата
      */
     fun getFormattedDateString(
         date: Date?,
@@ -53,8 +53,7 @@ object DateUtils {
 
         var formattedDate: String? = null
         try {
-            // todo пока что язык один, далее можно изменить на Locale.getDefault()
-            val dateFormat = SimpleDateFormat(sourceFormat.format, Locale("ru", "RU"))
+            val dateFormat = SimpleDateFormat(sourceFormat.format, Locale.getDefault())
             formattedDate = dateFormat.format(date)
         } catch (e: Exception) {
             e.printStackTrace()
@@ -174,9 +173,9 @@ object DateUtils {
     }
 
     /**
-     * Получить дату, время у которой 00:00:00.000
-     * @param date  дата
-     * @return date дата
+     * Возвращет дату без времени
+     * @param date изменяемая дата
+     * @return дата, время у которой установлено в полночь
      */
     fun getDateWithoutTime(date: Date): Date {
         val calendar = Calendar.getInstance().apply { time = date }

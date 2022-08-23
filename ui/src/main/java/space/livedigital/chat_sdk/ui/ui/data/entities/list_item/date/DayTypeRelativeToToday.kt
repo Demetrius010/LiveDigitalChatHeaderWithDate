@@ -1,9 +1,9 @@
 package space.livedigital.chat_sdk.ui.ui.data.entities.list_item.date
 
 /**
- * Типы дней для [DateItemData]
+ * Типы дней относительно текущего дня
  */
-enum class DayType {
+enum class DayTypeRelativeToToday {
     TODAY,
     YESTERDAY,
     DAY_BEFORE_YESTERDAY,

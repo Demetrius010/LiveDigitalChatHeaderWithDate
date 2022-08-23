@@ -15,7 +15,7 @@ import java.util.*
  */
 object ResourcesUtils {
 
-    private val DEFAULT_APP_LOCALE: Locale = Locale("ru")
+    private val DEFAULT_APP_LOCALE: Locale = Locale.getDefault()
 
     /**
      * Получение строки из ресурса
@@ -72,7 +72,7 @@ object ResourcesUtils {
      *
      * @param dimenId индентификатор dimension resource
      * @return количество pixels
-     * @see .getPxByDp
+     * @see getPxByDp
      */
     fun getDimensionPixels(@DimenRes dimenId: Int) = getResources().getDimensionPixelSize(dimenId)
 
@@ -112,7 +112,7 @@ object ResourcesUtils {
      *
      * @param dp количество dp
      * @return количество pixels
-     * @see .getDimensionPixels
+     * @see getDimensionPixels
      */
     fun getPxByDp(dp: Float): Int {
         val metrics = getDisplayMetrics()

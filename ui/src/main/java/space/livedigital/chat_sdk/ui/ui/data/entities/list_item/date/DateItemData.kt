@@ -7,5 +7,5 @@ import java.util.*
  */
 data class DateItemData(
     val date: Date,
-    val dayType: DayType
+    val dayTypeRelativeToToday: DayTypeRelativeToToday
 )

@@ -6,14 +6,14 @@ import space.livedigital.chat_sdk.ui.R
 import space.livedigital.chat_sdk.ui.databinding.DateItemBinding
 import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.ListItem
 import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.date.DateItemData
-import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.date.DayType
+import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.date.DayTypeRelativeToToday.*
 import space.livedigital.chat_sdk.ui.ui.list.view_holders.base.BaseViewHolder
 import space.livedigital.chat_sdk.utils.ResourcesUtils
 import java.text.SimpleDateFormat
 import java.util.*
 
 /**
- * ViewHolder для загаловка с датой
+ * ViewHolder для заголовка с датой
  */
 class DateViewHolder(
     inflater: LayoutInflater,
@@ -34,10 +34,10 @@ class DateViewHolder(
             SimpleDateFormat(dateFormatPattern, currentLocale).format(data.date.time)
         monthNameAndDay.replaceFirstChar { it.uppercase() }
 
-        val dateType = when (data.dayType) {
-            DayType.TODAY -> ResourcesUtils.getString(R.string.today)
-            DayType.YESTERDAY -> ResourcesUtils.getString(R.string.yesterday)
-            DayType.DAY_BEFORE_YESTERDAY -> ResourcesUtils.getString(R.string.day_before_yesterday)
+        val dateType = when (data.dayTypeRelativeToToday) {
+            TODAY -> ResourcesUtils.getString(R.string.today)
+            YESTERDAY -> ResourcesUtils.getString(R.string.yesterday)
+            DAY_BEFORE_YESTERDAY -> ResourcesUtils.getString(R.string.day_before_yesterday)
             else -> ""
         }
 

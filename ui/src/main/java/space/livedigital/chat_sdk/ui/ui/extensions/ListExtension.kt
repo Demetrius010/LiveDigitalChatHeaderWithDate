@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView.*
 import space.livedigital.chat_sdk.ui.ui.list.view_holders.base.BaseViewHolder
 
 /**
- * Разширение для инициализации @RecyclerView и задания параметров
+ * Расширение для инициализации [RecyclerView] и задания параметров
  */
 class ListExtension(private var list: RecyclerView?) {
 
@@ -23,7 +23,7 @@ class ListExtension(private var list: RecyclerView?) {
     }
 
     /**
-     * Задать @Adapter
+     * Задать [Adapter]
      */
     fun setAdapter(adapter: Adapter<BaseViewHolder>) {
         list?.adapter = adapter
@@ -58,15 +58,15 @@ class ListExtension(private var list: RecyclerView?) {
     }
 
     /**
-     * Задать @LayoutManager
-     * По умолчанию задается @LinearLayoutManager
+     * Задать [LayoutManager]
+     * По умолчанию задается [LinearLayoutManager]
      */
     fun setLayoutManager(layoutManager: LayoutManager = getDefaultLayoutManager()) {
         list?.layoutManager = layoutManager
     }
 
     /**
-     * Получить @LayoutManager по умолчанию
+     * Получить [LayoutManager] по умолчанию
      */
     private fun getDefaultLayoutManager(): LayoutManager {
         return LinearLayoutManager(

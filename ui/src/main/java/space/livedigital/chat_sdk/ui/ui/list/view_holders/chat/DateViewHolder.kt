@@ -6,10 +6,11 @@ import space.livedigital.chat_sdk.ui.R
 import space.livedigital.chat_sdk.ui.databinding.DateItemBinding
 import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.ListItem
 import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.date.DateItemData
+import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.date.DayTypeRelativeToToday
 import space.livedigital.chat_sdk.ui.ui.data.entities.list_item.date.DayTypeRelativeToToday.*
 import space.livedigital.chat_sdk.ui.ui.list.view_holders.base.BaseViewHolder
+import space.livedigital.chat_sdk.utils.DateUtils
 import space.livedigital.chat_sdk.utils.ResourcesUtils
-import java.text.SimpleDateFormat
 import java.util.*
 
 /**
@@ -28,24 +29,38 @@ class DateViewHolder(
     }
 
     private fun showDate(data: DateItemData) {
-        val currentLocale = Locale.getDefault()
-        val dateFormatPattern = ResourcesUtils.getString(R.string.date_format_pattern)
-        val monthNameAndDay: String =
-            SimpleDateFormat(dateFormatPattern, currentLocale).format(data.date.time)
-        monthNameAndDay.replaceFirstChar { it.uppercase() }
+        getTimeText(data)?.let { binding.timeText.text = it }
+    }
 
-        val dateType = when (data.dayTypeRelativeToToday) {
+    private fun getTimeText(data: DateItemData): String? {
+        val dayTypeRelativeToTodayString =
+            getDayTypeRelativeToTodayString(data.dayTypeRelativeToToday)
+        val monthNameAndDayString = getMonthNameAndDayString(data.date)
+
+        return if (dayTypeRelativeToTodayString.isNotEmpty()) {
+            ResourcesUtils.getString(
+                R.string.date_delimiter,
+                dayTypeRelativeToTodayString,
+                monthNameAndDayString
+            )
+        } else {
+            monthNameAndDayString
+        }
+    }
+
+    private fun getDayTypeRelativeToTodayString(dayTypeRelativeToToday: DayTypeRelativeToToday) =
+        when (dayTypeRelativeToToday) {
             TODAY -> ResourcesUtils.getString(R.string.today)
             YESTERDAY -> ResourcesUtils.getString(R.string.yesterday)
             DAY_BEFORE_YESTERDAY -> ResourcesUtils.getString(R.string.day_before_yesterday)
             else -> ""
         }
 
-        binding.timeText.text =
-            if (dateType.isNotEmpty()) {
-                ResourcesUtils.getString(R.string.date_delimiter, dateType, monthNameAndDay)
-            } else {
-                monthNameAndDay
-            }
+
+    private fun getMonthNameAndDayString(date: Date): String? {
+        val dateFormatPattern = ResourcesUtils.getString(R.string.date_format_pattern)
+        val monthNameAndDay = DateUtils.getFormattedDateString(date, dateFormatPattern)
+        monthNameAndDay?.replaceFirstChar { it.uppercase() }
+        return monthNameAndDay
     }
 }

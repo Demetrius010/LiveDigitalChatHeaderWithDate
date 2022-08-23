@@ -37,24 +37,23 @@ object DateUtils {
     }
 
     /**
-     * Возвращает отформатированную дату, с учетом [Locale] установленной по умолчанию
+     * Возвращает отформатированную дату, с учетом [Locale]
      *
-     * @param date         дата
+     * @param date         обрабатываемая дата
      * @param sourceFormat формат строки
+     * @param locale       региональные параметры
      * @return отформатированная дата
      */
     fun getFormattedDateString(
         date: Date?,
-        sourceFormat: DateFormat
+        sourceFormat: String,
+        locale: Locale = Locale.getDefault()
     ): String? {
-        if (date == null) {
-            return null
-        }
+        if (date == null) return null
 
         var formattedDate: String? = null
         try {
-            val dateFormat = SimpleDateFormat(sourceFormat.format, Locale.getDefault())
-            formattedDate = dateFormat.format(date)
+            formattedDate = SimpleDateFormat(sourceFormat, locale).format(date)
         } catch (e: Exception) {
             e.printStackTrace()
         }

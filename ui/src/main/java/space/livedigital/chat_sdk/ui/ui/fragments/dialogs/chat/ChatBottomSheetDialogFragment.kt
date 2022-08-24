@@ -9,6 +9,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import space.livedigital.chat_sdk.ui.R
 import space.livedigital.chat_sdk.ui.data.entities.Message
 import space.livedigital.chat_sdk.ui.databinding.ChatFragmentBinding
+import space.livedigital.chat_sdk.ui.di.ChatComponent
 import space.livedigital.chat_sdk.ui.ui.extensions.ListExtension
 import space.livedigital.chat_sdk.ui.ui.extensions.repeatOnViewLifecycleStart
 import space.livedigital.chat_sdk.ui.ui.fragments.dialogs.base.BaseRoundedBottomSheetDialogFragment
@@ -22,7 +23,7 @@ import space.livedigital.chat_sdk.ui.ui.view_models.chat.ChatViewModel
 /**
  * [BottomSheetDialogFragment] для экрана чата
  */
-class ChatBottomSheetDialogFragment : BaseRoundedBottomSheetDialogFragment() {
+class ChatBottomSheetDialogFragment : BaseRoundedBottomSheetDialogFragment(), ChatComponent {
 
     private val chatViewModel by viewModel<ChatViewModel>()
 

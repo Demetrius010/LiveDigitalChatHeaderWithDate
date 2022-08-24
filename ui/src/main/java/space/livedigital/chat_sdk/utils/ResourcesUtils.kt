@@ -7,7 +7,7 @@ import android.util.TypedValue
 import android.view.Window
 import androidx.annotation.*
 import androidx.core.content.ContextCompat
-import space.livedigital.chat_sdk.ui.application.ChatApp
+import space.livedigital.chat_sdk.ui.ChatInitializer
 import java.util.*
 
 /**
@@ -40,7 +40,8 @@ object ResourcesUtils {
      * @param resColor идентификатор ресурса цвета
      * @return цвет
      */
-    fun getColor(@ColorRes resColor: Int) = ContextCompat.getColor(ChatApp.context, resColor)
+    fun getColor(@ColorRes resColor: Int) =
+        ContextCompat.getColor(ChatInitializer.context, resColor)
 
     /**
      * Возвращает строку с окончанием множества
@@ -157,7 +158,7 @@ object ResourcesUtils {
      *
      * @return экземпляр класса Resources
      */
-    private fun getResources() = ChatApp.context.resources
+    private fun getResources() = ChatInitializer.context.resources
 
     private fun getDisplayMetrics() = getResources().displayMetrics
 
@@ -171,6 +172,6 @@ object ResourcesUtils {
         var conf = getResources().configuration
         conf = Configuration(conf)
         conf.setLocale(locale)
-        return ChatApp.context.createConfigurationContext(conf).resources
+        return ChatInitializer.context.createConfigurationContext(conf).resources
     }
 }

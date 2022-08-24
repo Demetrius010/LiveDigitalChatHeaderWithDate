@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <style name="ChatTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxBackgroundColor">@color/bg_main_chat</item>
         <item name="boxCornerRadiusBottomEnd">0dp</item>
         <item name="boxCornerRadiusBottomStart">0dp</item>
@@ -12,7 +12,7 @@
         <item name="hintEnabled">false</item>
     </style>
 
-    <style name="AppEditText" parent="Body.P2">
+    <style name="ChatEditText" parent="Body.P2">
         <item name="android:textCursorDrawable">@null</item>
         <item name="android:textColorHint">@color/light06_chat</item>
         <item name="android:drawablePadding">0dp</item>

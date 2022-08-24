@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppTheme.BottomSheetDialogTheme" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+    <style name="ChatTheme.BottomSheetDialogTheme" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
-        <item name="bottomSheetStyle">@style/CustomBottomSheet</item>
+        <item name="bottomSheetStyle">@style/ChatBottomSheet</item>
     </style>
 
-    <style name="CustomBottomSheet" parent="Widget.MaterialComponents.BottomSheet">
-        <item name="shapeAppearanceOverlay">@style/RoundShapeAppearanceBottomSheetDialog</item>
+    <style name="ChatBottomSheet" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="shapeAppearanceOverlay">@style/ChatRoundShapeAppearanceBottomSheetDialog</item>
     </style>
 
-    <style name="RoundShapeAppearanceBottomSheetDialog">
+    <style name="ChatRoundShapeAppearanceBottomSheetDialog">
         <item name="android:background">@color/bg_main_chat</item>
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopRight">10dp</item>

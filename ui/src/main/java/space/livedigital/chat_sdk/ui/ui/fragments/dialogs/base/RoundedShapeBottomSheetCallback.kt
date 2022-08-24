@@ -27,7 +27,7 @@ class RoundedShapeBottomSheetCallback : BottomSheetCallback() {
         val shapeAppearanceModel = ShapeAppearanceModel.builder(
             context,
             0,
-            R.style.RoundShapeAppearanceBottomSheetDialog
+            R.style.ChatRoundShapeAppearanceBottomSheetDialog
         ).build()
         val currentMaterialShapeDrawable = bottomSheet.background as MaterialShapeDrawable
         val newMaterialShapeDrawable = MaterialShapeDrawable(shapeAppearanceModel)

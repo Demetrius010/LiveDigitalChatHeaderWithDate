@@ -6,7 +6,7 @@ import space.livedigital.chat_sdk.ui.ChatInitializer
 
 /**
  * Расширение интерфейса [KoinComponent] для получения экземпляров непосредственно из контейнера Koin.
- * Реализуя данный интерфес, класс получает доступ к Inject методам Koin: by viewModel(), by inject()...
+ * Реализуя данный интерфейс, класс получает доступ к Inject методам Koin: by viewModel(), by inject()...
  */
 interface ChatComponent : KoinComponent {
 

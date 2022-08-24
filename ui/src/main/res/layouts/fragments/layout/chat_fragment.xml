@@ -51,7 +51,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
-        style="@style/BaseBackground"
+        style="@style/ChatBaseBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constrainedHeight="true"
@@ -71,7 +71,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/list">
 
-        <include layout="@layout/text_input_view" />
+        <include layout="@layout/chat_input_view" />
 
     </FrameLayout>
 

@@ -20,5 +20,5 @@ abstract class BaseRoundedBottomSheetDialogFragment : BaseBottomSheetDialogFragm
         return dialog
     }
 
-    override fun getTheme() = R.style.AppTheme_BottomSheetDialogTheme
+    override fun getTheme() = R.style.ChatTheme_BottomSheetDialogTheme
 }

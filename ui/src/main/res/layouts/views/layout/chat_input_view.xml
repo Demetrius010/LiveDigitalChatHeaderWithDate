@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/InputBackground"
+    style="@style/ChatInputBackground"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/AppTextInputLayout"
+        style="@style/ChatTextInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginVertical="8dp"
@@ -19,13 +19,13 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit"
-            style="@style/AppEditText"
+            style="@style/ChatEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hint_enter_message"
-            android:paddingStart="0dp"
             android:imeOptions="actionSend"
             android:inputType="text"
+            android:paddingStart="0dp"
             android:saveEnabled="false" />
     </com.google.android.material.textfield.TextInputLayout>
 

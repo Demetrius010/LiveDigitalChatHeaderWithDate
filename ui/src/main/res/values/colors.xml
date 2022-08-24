@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="bg_main">#FFFFFF</color>
-    <color name="bg_input">#FFFFFF</color>
-    <color name="bg_pinned">#272B2E</color>
+    <color name="bg_main_chat">#FFFFFF</color>
+    <color name="bg_input_chat">#FFFFFF</color>
+    <color name="bg_pinned_chat">#272B2E</color>
 
-    <color name="text_main">#F6F6F6</color>
+    <color name="text_main_chat">#F6F6F6</color>
 
-    <color name="black01">#1D1D2C</color>
-    <color name="black03">#777780</color>
-    <color name="black05">#D2D2D5</color>
-    <color name="light04">#D4D5DE</color>
-    <color name="light06">#B7B9C9</color>
-    <color name="gray_e2e2f0">#E2E2F0</color>
+    <color name="black01_chat">#1D1D2C</color>
+    <color name="black03_chat">#777780</color>
+    <color name="black05_chat">#D2D2D5</color>
+    <color name="light04_chat">#D4D5DE</color>
+    <color name="light06_chat">#B7B9C9</color>
+    <color name="gray_e2e2f0_chat">#E2E2F0</color>
 
-    <color name="color_active">#163498</color>
+    <color name="color_active_chat">#163498</color>
 </resources>

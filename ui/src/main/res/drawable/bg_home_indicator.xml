@@ -3,6 +3,6 @@
     <size
         android:width="20dp"
         android:height="4dp" />
-    <solid android:color="@color/black05" />
+    <solid android:color="@color/black05_chat" />
     <corners android:radius="100dp" />
 </shape>

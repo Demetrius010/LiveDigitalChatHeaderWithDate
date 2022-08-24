@@ -6,11 +6,11 @@
     </style>
 
     <style name="BaseBackground">
-        <item name="android:background">@color/bg_main</item>
+        <item name="android:background">@color/bg_main_chat</item>
     </style>
 
     <style name="InputBackground">
-        <item name="android:background">@color/bg_input</item>
+        <item name="android:background">@color/bg_input_chat</item>
     </style>
 
 </resources>

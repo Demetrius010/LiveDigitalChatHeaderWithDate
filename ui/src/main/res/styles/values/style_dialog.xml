@@ -12,7 +12,7 @@
     </style>
 
     <style name="RoundShapeAppearanceBottomSheetDialog">
-        <item name="android:background">@color/bg_main</item>
+        <item name="android:background">@color/bg_main_chat</item>
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeTopRight">10dp</item>
         <item name="cornerSizeTopLeft">10dp</item>

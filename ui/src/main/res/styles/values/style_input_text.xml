@@ -2,7 +2,7 @@
 <resources>
 
     <style name="AppTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxBackgroundColor">@color/bg_main</item>
+        <item name="boxBackgroundColor">@color/bg_main_chat</item>
         <item name="boxCornerRadiusBottomEnd">0dp</item>
         <item name="boxCornerRadiusBottomStart">0dp</item>
         <item name="boxCornerRadiusTopEnd">0dp</item>
@@ -14,7 +14,7 @@
 
     <style name="AppEditText" parent="Body.P2">
         <item name="android:textCursorDrawable">@null</item>
-        <item name="android:textColorHint">@color/light06</item>
+        <item name="android:textColorHint">@color/light06_chat</item>
         <item name="android:drawablePadding">0dp</item>
     </style>
 

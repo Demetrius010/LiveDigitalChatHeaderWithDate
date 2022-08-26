@@ -89,18 +89,25 @@ object ResourcesUtils {
      *
      * @return количество pixels
      */
-    fun getScreenHeightInPixels(): Int {
+    fun getScreenHeightInPixels() = getDisplayMetrics().heightPixels
+
+    /**
+     * Возвращает высоту экрана в pixels, не учитывая высоту Status Bar
+     *
+     * @return количество pixels
+     */
+    fun getScreenHeightWithoutStatusBarInPixels(): Int {
         val displayHeight = getDisplayMetrics().heightPixels
         val statusBarHeight = getStatusBarHeight()
         return displayHeight - statusBarHeight
     }
 
     /**
-     * Возвращает высоту экрана в pixels
+     * Возвращает высоту экрана в pixels, не учитывая высоту Status Bar
      *
      * @return количество pixels
      */
-    fun getScreenHeightInPixels(window: Window): Int {
+    fun getScreenHeightWithoutStatusBarInPixels(window: Window): Int {
         val decorView = window.decorView
         val rect = Rect()
         decorView.getWindowVisibleDisplayFrame(rect)

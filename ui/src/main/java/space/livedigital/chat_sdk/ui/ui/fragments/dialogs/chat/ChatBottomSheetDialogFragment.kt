@@ -2,7 +2,9 @@ package space.livedigital.chat_sdk.ui.ui.fragments.dialogs.chat
 
 import android.os.Bundle
 import android.view.View
+import android.widget.FrameLayout
 import androidx.core.view.isVisible
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -19,6 +21,7 @@ import space.livedigital.chat_sdk.ui.ui.list.generators.ChatGenerator
 import space.livedigital.chat_sdk.ui.ui.view_models.chat.ChatScreenEvent
 import space.livedigital.chat_sdk.ui.ui.view_models.chat.ChatScreenState
 import space.livedigital.chat_sdk.ui.ui.view_models.chat.ChatViewModel
+import space.livedigital.chat_sdk.utils.ResourcesUtils
 
 /**
  * [BottomSheetDialogFragment] для экрана чата
@@ -34,6 +37,7 @@ class ChatBottomSheetDialogFragment : BaseRoundedBottomSheetDialogFragment(), Ch
         super.onViewCreated(view, savedInstanceState)
         binding = ChatFragmentBinding.bind(view)
 
+        setupDialogHeight()
         setupList()
         setupListeners()
         observeState()
@@ -45,6 +49,21 @@ class ChatBottomSheetDialogFragment : BaseRoundedBottomSheetDialogFragment(), Ch
     }
 
     override fun getLayoutResource() = R.layout.chat_fragment
+
+    private fun setupDialogHeight() {
+        dialog?.setOnShowListener { dialogInterface ->
+            dialog?.findViewById<FrameLayout>(R.id.design_bottom_sheet)?.let { bottomSheet ->
+                val behavior = BottomSheetBehavior.from(bottomSheet)
+                val maxHeight = ResourcesUtils.getScreenHeightInPixels()
+
+                bottomSheet.layoutParams.height = maxHeight
+
+                behavior.peekHeight = maxHeight
+                behavior.maxHeight = maxHeight
+                behavior.state = BottomSheetBehavior.STATE_EXPANDED
+            }
+        }
+    }
 
     private fun setupList() {
         adapter = ChatAdapter(layoutInflater)

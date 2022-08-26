@@ -64,5 +64,5 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
 
     // DI
-    implementation "io.insert-koin:koin-android:3.2.0"
+    api "io.insert-koin:koin-android:3.2.0"
 }

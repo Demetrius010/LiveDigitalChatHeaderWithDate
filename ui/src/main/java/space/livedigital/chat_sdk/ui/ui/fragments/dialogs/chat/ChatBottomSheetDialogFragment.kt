@@ -52,16 +52,17 @@ class ChatBottomSheetDialogFragment : BaseRoundedBottomSheetDialogFragment(), Ch
 
     private fun setupDialogHeight() {
         dialog?.setOnShowListener { dialogInterface ->
-            dialog?.findViewById<FrameLayout>(R.id.design_bottom_sheet)?.let { bottomSheet ->
-                val behavior = BottomSheetBehavior.from(bottomSheet)
-                val maxHeight = ResourcesUtils.getScreenHeightInPixels()
+            dialog?.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
+                ?.let { bottomSheet ->
+                    val behavior = BottomSheetBehavior.from(bottomSheet)
+                    val maxHeight = ResourcesUtils.getScreenHeightInPixels()
 
-                bottomSheet.layoutParams.height = maxHeight
+                    bottomSheet.layoutParams.height = maxHeight
 
-                behavior.peekHeight = maxHeight
-                behavior.maxHeight = maxHeight
-                behavior.state = BottomSheetBehavior.STATE_EXPANDED
-            }
+                    behavior.peekHeight = maxHeight
+                    behavior.maxHeight = maxHeight
+                    behavior.state = BottomSheetBehavior.STATE_EXPANDED
+                }
         }
     }
 
